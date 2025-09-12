@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: edot-logstravaganza
+  labels:
+    app: daemonset-logs
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/component: migration-logger
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/component: migration-logger
+    spec:
+      tolerations:
+        - key: node-role.kubernetes.io/master
+          effect: NoSchedule
+      containers:
+        - name: busybox
+          image: busybox
+          args:
+            - /bin/sh
+            - -c
+            - while true; do echo "logs rule $(date +%H:%M:%S.%3N)" && sleep 0.001s; done
