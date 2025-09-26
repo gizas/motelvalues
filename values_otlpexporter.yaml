@@ -567,7 +567,7 @@ collectors:
             queue_size: 30000000 # 30MB uncompressed
             block_on_overflow: true
             batch:
-              flush_timeout: 1s # batch is sent regardless of the size - keep it in sync with previous value. 
+              flush_timeout: 5s # batch is sent regardless of the size - keep it in sync with previous value. 
               min_size: 100_000 # 0.1MB uncompressed
               max_size: 1_000_000 # 1MB uncompressed
         # [Elasticsearch exporter](https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/exporter/elasticsearchexporter/README.md)
