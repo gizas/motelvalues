@@ -660,6 +660,15 @@ collectors:
                     otlp:
                       protocol: grpc
                       endpoint: ${env:MY_POD_IP}:4317
+          traces:
+            level: basic
+            propagators: [tracecontext]
+            processors:
+              - batch:
+                  exporter:
+                    otlp:
+                      endpoint: ${env:MY_POD_IP}:4317
+                      protocol: grpc
 # For more details on OpenTelemetry's zero-code instrumentation, see:
 # https://opentelemetry.io/docs/concepts/instrumentation/zero-code/
 instrumentation:
