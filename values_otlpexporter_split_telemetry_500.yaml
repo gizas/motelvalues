@@ -620,8 +620,8 @@ collectors:
             block_on_overflow: true
             batch:
               flush_timeout: 1s  
-              min_size: 100_000 # 0.1MB uncompressed
-              max_size: 1_000_000 # 1MB uncompressed
+              min_size: 500_000 # 0.5MB uncompressed
+              max_size: 4_000_000 # 4MB uncompressed
           timeout: 10s
         # [Elasticsearch exporter](https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/exporter/elasticsearchexporter/README.md)
         # elasticsearch/otel:
